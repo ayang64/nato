@@ -68,13 +68,12 @@ func PhoneticArray(s string) string {
 	for _, r := range s {
 		if c := unicode.ToLower(r); c >= 'a' && c <= 'z' {
 			pos := c - 'a'
-
 			rc = append(rc, words[pos])
 			continue
 		}
 
 		if r >= '0' && r <= '9' {
-			pos := rune(len(words)) - ('9' - r) - 1
+			pos := 'z' - 'a' - '0' + 1 + r
 			rc = append(rc, words[pos])
 			continue
 		}
@@ -100,13 +99,12 @@ func PhoneticSlice(s string) string {
 	for _, r := range s {
 		if c := unicode.ToLower(r); c >= 'a' && c <= 'z' {
 			pos := c - 'a'
-
 			rc = append(rc, words[pos])
 			continue
 		}
 
 		if r >= '0' && r <= '9' {
-			pos := rune(len(words)) - ('9' - r) - 1
+			pos := 'z' - 'a' - '0' + 1 + r
 			rc = append(rc, words[pos])
 			continue
 		}
